@@ -6,12 +6,11 @@ function TrieNode(key) {
 }
 
 function searchAllWords(node, array) {
-    // base case, if node is at a word, push to output
     if (node.end) {
         array.unshift(node.getWord())
     }
 
-    // iterate through each children, call recursive searchAllWords
+    //on itére sur chaque enfant, puis on appelle searchAllWords de manière récursive
     for (let child in node.children) {
         searchAllWords(node.children[child], array)
     }
@@ -82,7 +81,8 @@ Trie.prototype.search = function(word) {
 }
 
 //retourne tous les mots existant dans l'arbre
-Trie.prototype.collectAllWords = function(node, words) {
+Trie.prototype.collectAllWords = function(node) {
+    let words = []
     searchAllWords(node,words)
     return words
 }
@@ -90,7 +90,7 @@ Trie.prototype.collectAllWords = function(node, words) {
 
 let trie = new Trie()
 
-console.log(trie.collectAllWords(trie.root,[]))
+console.log(trie.collectAllWords(trie.root))
 
 trie.insert("bat")
 trie.insert("battle")
@@ -99,6 +99,6 @@ trie.insert("butter")
 console.log(trie.search("ba"))
 console.log(trie.search("batt"))
 
-console.log(trie.collectAllWords(trie.root,[]))
+console.log(trie.collectAllWords(trie.root))
 
   
