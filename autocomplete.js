@@ -87,18 +87,20 @@ Trie.prototype.collectAllWords = function(node) {
     return words
 }
 
-
+//on initialise l'arbre
 let trie = new Trie()
 
-console.log(trie.collectAllWords(trie.root))
-
+//on teste la méthode "insert"
 trie.insert("bat")
+trie.insert("popcorn")
 trie.insert("battle")
 trie.insert("butter")
 
+//on teste la méthode "search"
 console.log(trie.search("ba"))
 console.log(trie.search("batt"))
 
+//on teste la méthode "collectAllWords"
 console.log(trie.collectAllWords(trie.root))
 
   
